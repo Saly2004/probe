@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=" description " content=" Tabelle mit CO2-Emissionsdaten die je nach Land und Unternehmen sortiert und gefiltert werden kann">
+    <meta name=" keywords " content=" CO2 , Emissionsdaten , Tabellen mit Unternehmen für CO2-Emissionsdaten , Tabellen mit Länder für CO2-Emissionsdaten">
+    <title>CO2 Fußabdruck</title>
+</head>
+
+<body dir="ltr">
+ 
+  
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#2da542;">
+  <div class="container">
+    
+    <a class="navbar-brand fw-bold" href="#">
+      🌱 CO<sub>2</sub> Fußabdruck Weltweit
+    </a>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #2da542;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#str">Startseite</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#co">CO<sub>2</sub>-Daten</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#über">Über Uns</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#kon">Kontakt</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <section id="str" class="Startseite">
+    <section class="hero">
+        <h2>Verfolgen Sie globale <span>CO<sub>2</sub></span>-Emissionsdaten</h2>
+        <p>Überwachen Sie den CO<sub>2</sub>-Fußabdruck von Unternehmen und Ländern weltweit. </p>
+        <div class="buttons">
+            <button class="green">Daten erkunden</button>
+            <button>Mehr erfahren</button>
+        </div>
+    </section>
+
+    <section class="stats container my-5">
+  <div class="row g-4 text-center">
+    <div class="col-md-4">
+      <div class="card shadow h-100">
+        <div class="card-body">
+          <h2 class="text-success">100</h2>
+          <p>verfolgte Länder</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow h-100">
+        <div class="card-body">
+          <h2 class="text-success">+1000</h2>
+          <p>Überwachte Unternehmen</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow h-100">
+        <div class="card-body">
+          <h2 class="text-success">10,5%</h2>
+          <p>Durchschnittliche Reduktion</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="allgemein">
+    <h1>Allgemeine informationen über CO<sub>2</sub> Emissionsdaten</h1>
+    <p class="beschreibung">
+        CO₂-Emissionsdaten erfassen die Menge an Kohlendioxid (CO₂), die durch verschiedene menschliche Aktivitäten freigesetzt werden.
+    </p>
+    <div class="cards-container">
+        <div class="card">
+            <h3>Quellen von CO<sub>2</sub>-Emissionen</h3>
+            <p>Energieerzeugung(ca.40% weltweit), Industrie(ca.20%), Verkehr(ca.15-20%), Gebäude(z.B Heizung, Warmwasser, Klimaanlagen) und Landwirtschaft. </p>
+        </div>
+
+        <div class="card">
+            <h3>Unterschiedliche Arten von CO<sub>2</sub>-Emissionen</h3>
+            <p>Territoriale Emissionen, Konsum-basierte Emissionen, Pro-Kopf-Emissionen. </p>
+        </div>
+    </div>
+</section>
+
+</section>    
+    <h1 class="headline">🌍CO<sub>2</sub>-Emissionsdaten</h1>
+
+    <div class="filters">
+        <select id="countryFilter" onchange="filterTable()" class="filter-element">
+            <option value="">Alle Länder</option>
+        </select>
+        <input type="text" id="companyFilter" placeholder="Unternehmen suchen..." onkeyup="filterTable()" class="filter-element">
+    </div>
+<section id="co" class="CO2-Daten">
+    <div class="table-container">
+        <table id="emissionsTabele">
+            <thead>
+                <tr>
+                    <th class="p-3 cursor-pointer" onclick="sortTable(0)">Land⬍</th>
+                    <th class="p-3 cursor-pointer" onclick="sortTable(1)">Unternehmen⬍</th>
+                    <th class="p-3 cursor-pointer" onclick="sortTable(2)">Sektor⬍</th>
+                    <th class="p-3 cursor-pointer" onclick="sortTable(3)">Emissionen (Mt)⬍</th>
+                    <th class="p-3 cursor-pointer" onclick="sortTable(4)">Jahr ⬍</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+
+
+<section id="über" class="Über Uns">
+  <h1>Über Uns</h1>
+  <p class="beschreibung">
+    Wir sind eine engagierte Organisation, die daran arbeitet, Transparenz bei globalen Kohlenstoffemissionen zu schaffen. Unsere Mission ist es, zugängliche und genaue Daten bereitzustellen, um fundierte Entscheidungen zu ermöglichen.
+  </p>
+
+  <div class="cards-container">
+    <div class="card">
+      <h3>🔐 Datensicherheit</h3>
+      <p>Validierung aller Eingaben schützt vor Codeangriffen und bewahrt die Datenintegrität.</p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Echtzeit-Updates</h3>
+      <p>Unsere Datenbank wird kontinuierlich aktualisiert, damit du immer aktuelle Umweltzahlen hast.</p>
+    </div>
+
+    <div class="card">
+      <h3>🌱 Gemeinnützige Mission</h3>
+      <p>Wir setzen uns für Klima-Transparenz und öffentliches Bewusstsein durch offene Daten ein.</p>
+    </div>
+  </div>
+</section>
+
+<section id="kon" class="kontakt">
+  <h1>Kontakt aufnehmen</h1>
+  <p class="beschreibung">
+    Haben Sie Fragen zu unseren Daten? Kontaktieren Sie uns für eine nachhaltige Zukunft.
+  </p>
+
+  <div class="kontakt-container">
+    <div class="kontakt-links">
+      <h2>Kontaktinformationen</h2>
+      <div class="info-box">
+        <p><strong>📧 E-Mail</strong><br>info@ecotracker.org</p>
+      </div>
+      <div class="info-box">
+        <p><strong>📞 Telefon</strong><br>+49 (30) 123-4567</p>
+      </div>
+      <div class="info-box">
+        <p><strong>📍 Adresse</strong><br>Klimastraße 123, Berlin, Deutschland</p>
+      </div>
+    </div>
+
+    <div class="kontakt-rechts">
+      <h2>Senden Sie uns eine Nachricht</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" pattern="[A-Za-z\s]+" required placeholder="Ihr vollständiger Name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" required placeholder="ihre.email@beispiel.de">
+        </div>
+        <div class="form-group">
+          <label for="subject">Betreff</label>
+          <input type="text" id="subject" placeholder="Worum geht es?">
+        </div>
+        <div class="form-group">
+          <label for="message">Nachricht *</label>
+          <textarea id="message" rows="5" required placeholder="Erzählen Sie uns mehr über Ihre Anfrage..."></textarea>
+        </div>
+        <button type="submit" class="btn">Nachricht senden</button>
+      </form>
+    </div>
+  
+  </div>
+</section>
+
+
+
+<div class="language-switcher">
+  <button onclick="switchLanguage('de')">Deutsch</button>
+  <button onclick="switchLanguage('ar')">Arabisch</button>
+  <button onclick="switchLanguage('en')">English</button>
+</div>
+
+    <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h2 class="logo">🌿 CO₂-Fußabdruck</h2>
+      <p class="slogan">CO₂-Fußabdruck-Monitor</p>
+      <p class="beschreibungg">
+        Eine gemeinnützige Organisation, die sich der Verfolgung und Reduzierung globaler CO₂-Emissionen widmet. Unsere Mission ist es, transparente, zugängliche Daten bereitzustellen, um den Klimawandel zu bekämpfen.
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Rechtliches</h3>
+      <ul>
+        <li><a href="rechtliches.html">Rechtlichen Hinweisen</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <hr>
+
+  <div class="footer-bottom">
+    <p>© 2025 CO₂-Fußabdruck. Alle Rechte vorbehalten. | Datenquellen: Verschiedene Umweltbehörden und Forschungseinrichtungen.</p>
+  </div>
+
+</footer>
+
+
+ 
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main2.js"></script>
+</html>
+
